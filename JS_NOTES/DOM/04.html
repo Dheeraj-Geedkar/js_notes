@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code | DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+
+    // 
+    function addLanguage(langName){
+        // createElement 1)
+        const li = document.createElement('li');
+        // add lang name as input to list item 2)
+        li.innerHTML = `${langName}`
+        
+        // document.querySelector('.language') 
+        // => select language element
+        // then append child 3)
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // above code will display in page 
+
+    function addOptiLanguage(langName){
+        //1)
+        const li = document.createElement('li');
+        
+        // const addText =  document.createTextNode(langName)
+        // li.appendChild(addText) 
+
+        //or 2)
+
+        li.appendChild(document.createTextNode(langName))
+
+       // 3)
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLanguage('golang')
+
+    //Edit
+
+    // select 2nd lang from li
+    // nth child(i) is property
+    const secondLang = document.querySelector("li:nth-child(2)")
+    console.log(secondLang);
+
+    // 1st approach edit 
+    //secondLang.innerHTML = "Mojo"
+
+    // 2nd approach edit 
+    //createElement
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo" // give text value
+
+    // make change to display on page
+    // replaceWith() method to replace value
+    secondLang.replaceWith(newli) 
+
+    //3rd approach edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    //remove
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+
+
+</script>
+</html>
