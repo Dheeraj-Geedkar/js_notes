@@ -23,9 +23,11 @@ createUser.prototype.printMe = function(){
 }
 
 const chai = new createUser("chai", 25)
+// if we do not mention new keyword in above code so we get error in  (a) because 'chai' do not have access to printme So we have to provide access of properties , function to it by use of 'new' keyword
+
 const tea = createUser("tea", 250)
 
-chai.printMe()
+chai.printMe()   // (a)
 
 
 /*
