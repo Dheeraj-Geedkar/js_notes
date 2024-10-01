@@ -16,10 +16,20 @@
     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
     const xhr = new XMLHttpRequest();
     xhr.open('GET', requestUrl)
+
+    // cosole.log('here') // => visible at console
+
     xhr.onreadystatechange = function(){
         console.log(xhr.readyState);
         if (xhr.readyState === 4) {
+
+           // const data = this.responseText
+           // returns response in string format but it takes it as a object so we cannot get       
+            //    =>   console.log(data.followers);
+
             const data = JSON.parse(this.responseText)
+            // JSON.parse coverts into json oject form
+            
             console.log(typeof data);
             console.log(data.followers);
         }
