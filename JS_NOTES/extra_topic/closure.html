@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure aur chai</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+</body>
+
+    <script> // run code in console 
+     
+ //    function outer(){
+ //           let username = "hitesh"
+ //    }
+
+ //    console.log(username);   => error as (username is defined inside scope of function , Can't access outside it )
+     
+// -----------------------------------------------
+     // Lexical Scoping ( function inside another function )
+     // Concept => inner function has access of all vatiables of outer fiunction  
+     // But outer func do not have access of variables of inner func 
+     // also inner1 func cannot have access of variables of inner2 func
+
+     // ex- 1
+
+    // function init() {
+    //     let name = "Mozilla"; 
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+     
+
+    // ex -2 
+
+    // function outer(){
+    //     let username = "hitesh"
+    //     console.log("OUTER", secret);
+    //     function inner(){
+    //         let secret = "my123"
+    //         console.log("inner", username);
+    //     }
+    //     function innerTwo(){
+    //         console.log("innerTwo", username);
+    //         console.log(secret);
+    //     }
+    //     inner()
+    //     innerTwo()
+
+    // }
+    // outer()
+    // console.log("TOO OUTER", username);
+
+// ---------------------------------------------
+
+// Closure => ( return function also return its lexical 
+    //           scope also )
+
+    // function makeFunc() {
+    //     const name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name);
+    //     }
+    //     return displayName;  (******)
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+    // (******) here we return inner func but inside it returns whole code or scope of inner func 
+       
+    // ex          function displayName() {
+    //                    console.log(name);
+    //                    }
+
+    // as well as lexical scope 
+                    
+    // ex          const name = "Mozilla";
+    //             function displayName() {
+    //                  console.log(name);
+    //                       }
+
+    </script>
+ 
+    <script>  // practical example of lexical scope 
+
+    
+        // document.getElementById("orange").onclick = function(){
+        //     document.body.style.backgroundColor = `orange`
+        // }
+  // => on clicking button bg color =  orange
+  
+  
+        // document.getElementById("green").onclick = function(){
+        //     document.body.style.backgroundColor = `green`
+        // }
+  // => on clicking button bg color =  green
+
+
+
+        function clickHandler(color){
+            // document.body.style.backgroundColor = `${color}`
+
+   // below code of on click changes color if    
+  //  like       document.getElementById('orange'). 
+      //         onclick = clickHandler("orange")
+    
+    //  before clicking on the button color alredy changes as 
+    // onclick needs a function reference , definiton but we passed ( clickHandler ) executable function so we need the concept of the closure
+
+            return function(){
+                document.body.style.backgroundColor = `${color}`
+            }
+
+    // here we solved problem by lexical scoping and closure          
+        }
+
+        document.getElementById('orange').onclick = clickHandler("orange")
+        document.getElementById('green').onclick = clickHandler("green")
+
+    </script>
+</html>

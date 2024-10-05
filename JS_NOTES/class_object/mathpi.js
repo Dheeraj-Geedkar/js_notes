@@ -39,6 +39,7 @@ console.log(Object.getOwnPropertyDescriptor(chai, "name"));
 // Object.entries  => get  access of all elements inside Object 
 for (let [key, value] of Object.entries(chai)) {
     if (typeof value !== 'function') {
+        // if condition used so that we don't get error as in case we access only the key value pair So if we have a function inside any object so that get error sometimes so avoid it by use of condition 
         
         console.log(`${key} : ${value}`);
     }
