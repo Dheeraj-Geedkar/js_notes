@@ -34,5 +34,21 @@
 Dom manipulation in javascript allows you to access and manipulate web page elements
 
 Dom manipulation allows you to change the values and structure of a web page using javascript
+ 
+---------------------------------------
+in console =>
 
+const title = document.getElementById('title') ;
+
+title.innerText => ' DOM learning on Chai aur code ' 
+
+// only text visible on web page will be printed . if applied display none it will not be printed
+
+title.textContent => ' DOM learning on Chai aur code test text'
+
+// Will display all the text contained in that particular id html element , ignoring all the html tags inside it
+
+title.innerHTML => ' DOM learning on Chai aur code <span style="display: none;">test text</span> '
+
+// It will print all the content within html tags 
 -->
