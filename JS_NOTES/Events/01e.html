@@ -34,7 +34,16 @@
     // clientX, clientY, screenX, screenY
     // altkey, ctrlkey, shiftkey, keyCode
 
+    // Q) What was the view  , Window height width , time , when you click on the mouse
+
+    // Q ) Create an application which returns us the time when a particular image body or any element is clicked with the mouse  => use timestamp in js 
+
+     // Q ) Create an application which creates a circle  whenever we click on a particular place in div . etc 
+ 
+    //  => All these questions can be solved by using Javascript events
     // -----------------------------------------------
+       
+     // Examples of event bubbling and capturing
 
     // 4)  document.getElementById('images').addEventListener('click', function(e){
     //     console.log("clicked inside the ul");
@@ -45,22 +54,27 @@
     //     e.stopPropagation()
     // }, false)
     
+    //  ------------------------------
+
+    // Example of prevent Default
+
     // document.getElementById('google').addEventListener('click',function(e){
     //     e.preventDefault();
     //     e.stopPropagation()
     //     console.log("google clicked");
     // }, false)
    
-    // Create event to delete image on click 
+    // Create event to delete image on click ( But internally we have to delete the li tag else there will be a bullet point in place of image)
     document.querySelector('#images').addEventListener('click', function(e){
 
         // console.log(e)
         // console.log(e.target)
+        // e.target  => 
         
         // m - 1 
 
-        // It fails when we do not click on image So delete all images as imge => parent (li) but others parent (ul) so gets deleted 
-
+        // It fails when we do not click on image because all images have => parent (li) but , others have parent (ul) so . All the content of the list gets deleted 
+            
      //   console.log(e.target.parentNode)
       //  let removeIt = e.target.parentNode
        //     removeIt.remove()
@@ -75,6 +89,8 @@
         
     })
     
+
+    // m - 2 
     //removeIt.parentNode.removeChild(removeIt)
 </script>
 </html>
