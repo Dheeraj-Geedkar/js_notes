@@ -24,11 +24,14 @@
         // => select language element
         // then append child 3)
         document.querySelector('.language').appendChild(li)
+        // Here actually every new child will be appended to the last node by traversing from the root element ( document) to the last elements so in a large or big project it takes a lot of time to traverse to the last node then append the child so we need an optimum approach
     }
     addLanguage("python")
     addLanguage("typescript")
 
     // above code will display in page 
+
+    // ====================  Optimum approach
 
     function addOptiLanguage(langName){
         //1)
@@ -46,7 +49,9 @@
     }
     addOptiLanguage('golang')
 
-    //Edit
+    // Therefore it is a good practise to use append child instead of innerHTML
+
+    //Edit in DOM 
 
     // select 2nd lang from li
     // nth child(i) is property
