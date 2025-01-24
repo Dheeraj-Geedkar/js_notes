@@ -2,16 +2,24 @@
 const promiseOne = new Promise(function(resolve, reject){
     //Do an async task
     // DB calls, cryptography, network
-    setTimeout(function(){
+    setTimeout(function(){ 
+        //  setTimeout Executes after some time
         console.log('Async task is compelete');
         resolve()
-    }, 1000)
+    }, 1000)          //  1000 => Millisecond
 })
 
-// to use it we need to call resolve() in promise 
+// to use or consume promise object we need to call resolve() in promise 
 promiseOne.then(function(){
     console.log("Promise consumed");
 })
+
+//  o/p  => Async task is complete
+//           Promise consumed
+
+// Here first async task is completed will be printed , As promises is called , then resolve() will be called then promise consumed will be printed {.then()}
+
+//  ==============================================
 
 // method 2    create promise object
 new Promise(function(resolve, reject){
@@ -24,6 +32,8 @@ new Promise(function(resolve, reject){
     console.log("Async 2 resolved");
 })
 
+//  ==============================================
+
 const promiseThree = new Promise(function(resolve, reject){
     setTimeout(function(){
         resolve({username: "Chai", email: "chai@example.com"})
@@ -31,9 +41,14 @@ const promiseThree = new Promise(function(resolve, reject){
 })
 
 // user => object
+// In .then() the value which is passed is acts as an input parameter in resolve function in promise
 promiseThree.then(function(user){  
     console.log(user);
 })
+
+//  o/p  => {username: "Chai", email: "chai@example.com"}
+
+//  ==============================================
 
 const promiseFour = new Promise(function(resolve, reject){
     setTimeout(function(){
@@ -51,13 +66,23 @@ const promiseFour = new Promise(function(resolve, reject){
  .then((user) => {
     console.log(user);
     return user.username
-}).then((username) => {
+}).then((username) => {          // Chaining
     console.log(username);
 }).catch(function(error){
     console.log(error);
 }).finally(() => console.log("The promise is either resolved or rejected"))
 
+//  o/p  =>   error = true   => 
+//  ERROR: Something went wrong
+ //  The promise is either resolved or rejected
 
+//  o/p  =>   error = false   => 
+              
+ //   {username: "hitesh", password: "123"}
+  //  hitesh
+   //  The promise is either resolved or rejected
+
+  //  ==============================================
 
 const promiseFive = new Promise(function(resolve, reject){
     setTimeout(function(){
@@ -85,6 +110,8 @@ async function consumePromiseFive(){
 }
 
 consumePromiseFive()
+
+
 //  call to promise
 
        // m - 1
@@ -114,7 +141,7 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 })
 .catch((error) => console.log(error))
 
-// in these fetch gets data in form of promise request so keep in '.then' and return to next '.then' and catch block to handle error 
+// in these fetch gets data in form of promise request , so keep in '.then' and return to next '.then' and catch block to handle error 
 
 // In o/p we get to see that promise 5 execute first than all other promises but we have writtn code of p5 at last so what was all previous code doing 
 
