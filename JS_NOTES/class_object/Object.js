@@ -3,16 +3,21 @@ function multipleBy5(num){
     return num*5
 }
 
-multipleBy5.power = 2
+multipleBy5.power = 2   //  Property of a function
 
 console.log(multipleBy5(5));    // 25
 console.log(multipleBy5.power);      // 2
 console.log(multipleBy5.prototype);    // {}
 
+// =====================================
+
+
 function createUser(username, score){
     this.username = username
     this.score = score
 }
+
+// Injecting a method inside the prototype of a function
 
 createUser.prototype.increment = function(){
     this.score++   

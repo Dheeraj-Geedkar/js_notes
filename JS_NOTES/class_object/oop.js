@@ -19,7 +19,7 @@ const user = {              // Object Literal
 }
 
 
-//console.log(user.username)
+//console.log(user.username)    =>   hitesh
 //console.log(user.getUserDetails());     (1)
 
 
@@ -42,7 +42,7 @@ function User(username, loginCount, isLoggedIn){
     }
 
     return this  
-    // so above code means we have passed object 
+    // means we have passed object 
 }
 
 const userOne = new User("hitesh", 12, true)
@@ -50,6 +50,10 @@ const userTwo = new User("ChaiAurCode", 11, false)
 // if we do not use 'new' in both 'user1' and 'user2' so if we print 'user1' we get values of 'user2' as it override value as "USER" only one instance available 
 
 // With help of new keyword both are different instance 
+
+// console.log(userOne) ;
+//  console.log(userTwo) ;
+
 
 console.log(userOne.constructor);
 // o/p => [Function : User]

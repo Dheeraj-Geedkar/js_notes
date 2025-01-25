@@ -17,7 +17,6 @@
 // So our goal is to create our own method or proprty which we can use like 'trueLength'
 let myHeros = ["thor", "spiderman"]
 
-
 let heroPower = {
     thor: "hammer",
     spiderman: "sling",
@@ -27,7 +26,7 @@ let heroPower = {
     }
 }
 
-// So we need to create a method named as 'hitesh' in out object but it is not present . We have to inject it into object by below methods . Here since all things in JS are object So we inject property in Object so accessed by all by  use of 'prototype'
+// So we need to create a method named as 'hitesh' in our object but it is not present . We have to inject it into object by below methods . Here since all things in JS are object So we inject property in Object so accessed by all by  use of 'prototype'
 
 Object.prototype.hitesh = function(){
     console.log(`hitesh is present in all objects`);
@@ -69,17 +68,22 @@ const TeachingSupport = {
 const TASupport = {
     makeAssignment: 'JS assignment',
     fullTime: true,
-    __proto__: TeachingSupport
+    __proto__: TeachingSupport // To link objects to objects
 }
 
 Teacher.__proto__ = User  // old syntax of inheritance
+// To link objects to objects
 
 // modern syntax of inheritance
 Object.setPrototypeOf(TeachingSupport, Teacher)
                    //( can access  , of )
                   // ( child , parent )
 
+//    =================================================
+
+  //  Solution for the first problem                
 // create true length() for String 
+
 let anotherUsername = "ChaiAurCode     "
 
 String.prototype.trueLength = function(){
